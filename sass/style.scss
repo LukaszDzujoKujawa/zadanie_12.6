@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 50px;
+}
+
+.country {
+  display: flex;
+}
+
+.col-one, .col-two {
+  background-color: lightgrey;
+  p {
+    border: 1px solid black;
+    padding: 10px;
+    height: 50px;
+  }
+  figure {
+    border: 1px solid black;    
+    width: 86px;
+    height: 50px;
+  }
+}
+
+.flag {
+  width: 100%;
+  height: 100%;
+}
