@@ -3,9 +3,9 @@ $(function() {
   var url = "https://restcountries.eu/rest/v2/name/";
   var countriesList = $('#countries');
 
-  $('#search').click(searchCountries);
-  $('#country-name').keypress(function (e) {
-    if(e.which === 13) {
+  $('#search').on("click", searchCountries);
+  $('#country-name').on("keypress", function (e) {
+    if (e.which === 13) {
       searchCountries();
     }
   });
@@ -20,10 +20,14 @@ $(function() {
 
   function showCountriesList(resp) {
     countriesList.empty();
-    var $listItem = $('<li>').addClass('country').appendTo(countriesList);
-    var $colOne = $('<div>').addClass('col-one').appendTo($listItem);
-    var $colTwo = $('<div>').addClass('col-two').appendTo($listItem);
+     if (!Array.isArray(resp) || !resp.length) {
+      return;
+    } 
+
     resp.forEach(function(item) {
+      var $listItem = $('<li>').addClass('country').appendTo(countriesList);
+      var $colOne = $('<div>').addClass('col-one').appendTo($listItem);
+      var $colTwo = $('<div>').addClass('col-two').appendTo($listItem);
       $('<p>').text('Name').appendTo($colOne);
       $('<p>').text('Flag').appendTo($colOne);
       $('<p>').text('Population').appendTo($colOne);
